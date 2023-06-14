@@ -1,0 +1,39 @@
+﻿<Window x:Class="CarApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Car Application" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Number:" VerticalAlignment="Center"/>
+            <TextBox x:Name="numberTextBox" Width="100" Margin="5"/>
+            <TextBlock Text="Brand:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox x:Name="brandTextBox" Width="100" Margin="5"/>
+            <TextBlock Text="Color:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox x:Name="colorTextBox" Width="100" Margin="5"/>
+            <TextBlock Text="Mileage:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox x:Name="mileageTextBox" Width="100" Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
+            <Button Content="Delete" Click="DeleteButton_Click" Margin="0,0,10,0"/>
+            <Button Content="Create" Click="AddButton_Click" Margin="0,0,10,0"/>
+        </StackPanel>
+
+        <DataGrid x:Name="datagrid" Grid.Row="2" AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="10" IsReadOnly="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Number" Binding="{Binding Number}"/>
+                <DataGridTextColumn Header="Brand" Binding="{Binding Brand}"/>
+                <DataGridTextColumn Header="Color" Binding="{Binding Color}"/>
+                <DataGridTextColumn Header="Mileage" Binding="{Binding Mileage}"/>
+                <DataGridTextColumn Header="Speed" Binding="{Binding Speed}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
